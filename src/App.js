@@ -32,6 +32,7 @@ function App() {
       <div className="title">
         <h1>Lista de tareas con Firebase</h1>
       </div>
+
       <Row className="todo">
         <Col
           className="todo__title"
@@ -57,7 +58,7 @@ function App() {
           )}
         </Col>
         <Col
-          className="todo__list"
+          className="todo__input"
           xs={{ span: 10, offset: 1 }}
           md={{ span: 6, offset: 3 }}
         >

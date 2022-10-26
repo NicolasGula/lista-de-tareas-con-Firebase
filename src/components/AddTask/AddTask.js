@@ -30,7 +30,7 @@ export default function AddTask() {
     <Form onSubmit={onSubmit} className="add-task">
       <input
         type="text"
-        placeholder="Nueva tarea..."
+        placeholder="NUEVA TAREA . . ."
         onChange={(e) => setTask(e.target.value)}
         value={task}
       />
