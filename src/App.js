@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Spinner } from "react-bootstrap";
 import AddTask from "./components/AddTask/index";
-import { map } from "lodash";
+import { map, size } from "lodash";
 import firebase from "./utils/firebase";
 import "firebase/compat/firestore";
 import "./app.scss";
@@ -10,7 +10,7 @@ import Task from "./components/Task/Task";
 const db = firebase.firestore(firebase);
 
 function App() {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState(null);
 
   useEffect(() => {
     db.collection("tareas")
@@ -25,7 +25,7 @@ function App() {
         });
         setTasks(arrayTasks);
       });
-  }, []);
+  }, [tasks]);
 
   return (
     <Container fluid className="app">
@@ -45,9 +45,16 @@ function App() {
           xs={{ span: 10, offset: 1 }}
           md={{ span: 6, offset: 3 }}
         >
-          {map(tasks, (task, index) => (
-            <Task key={index} task={task} />
-          ))}
+          {!tasks ? (
+            <div className="loading">
+              <Spinner animation="border" />
+              <span>Cargando...</span>
+            </div>
+          ) : size(tasks) === 0 ? (
+            <h3>No hay tareas</h3>
+          ) : (
+            map(tasks, (task, index) => <Task key={index} task={task} />)
+          )}
         </Col>
         <Col
           className="todo__list"

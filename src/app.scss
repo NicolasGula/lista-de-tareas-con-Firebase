@@ -54,6 +54,24 @@
       border-right: 1px solid #dadada;
       background-color: #fff;
       max-height: calc(100vh - 400px);
+      overflow-y: scroll;
+
+      .loading {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 20px 0;
+
+        span {
+          padding-top: 20px;
+        }
+      }
+
+      h3 {
+        text-align: center;
+        padding: 20px 0;
+      }
     }
 
     &__input {
