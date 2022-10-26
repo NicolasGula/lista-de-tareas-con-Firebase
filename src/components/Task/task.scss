@@ -1,0 +1,19 @@
+.task {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #dadada;
+
+  &:last-of-type {
+    border-bottom: 0;
+  }
+
+  div {
+    &:nth-child(1) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-right: 1px solid #dadada;
+      height: 70px;
+    }
+  }
+}

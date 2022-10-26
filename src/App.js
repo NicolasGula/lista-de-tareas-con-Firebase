@@ -5,6 +5,7 @@ import { map } from "lodash";
 import firebase from "./utils/firebase";
 import "firebase/compat/firestore";
 import "./app.scss";
+import Task from "./components/Task/Task";
 
 const db = firebase.firestore(firebase);
 
@@ -44,7 +45,9 @@ function App() {
           xs={{ span: 10, offset: 1 }}
           md={{ span: 6, offset: 3 }}
         >
-          <p>Lista de tareas</p>
+          {map(tasks, (task, index) => (
+            <Task key={index} task={task} />
+          ))}
         </Col>
         <Col
           className="todo__list"
