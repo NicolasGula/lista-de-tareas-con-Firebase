@@ -28,6 +28,9 @@
           cursor: pointer;
           fill: #45da00;
         }
+        &.completed {
+          fill: #45da00;
+        }
       }
     }
     &:nth-child(2) {
